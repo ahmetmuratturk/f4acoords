@@ -3,32 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Search</title>
+    <title>Data Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 80px); /* Adjusted width to accommodate button */
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            vertical-align: middle; /* Align button vertically with input */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .data-item {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px; /* Increased margin bottom for separation */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between; /* Align items with equal space between them */
+            align-items: center; /* Center align items vertically */
+        }
+
+        .data-item span:first-child {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.1rem;
+            flex: 1; /* Allow player names to take up available space */
+        }
+
+        .coordinates {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1rem;
+            color: #666;
+            text-align: center; /* Center align coordinates */
+            flex: 1; /* Allow coordinates to take up available space */
+        }
+
+        .copy-button {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Player Search</h1>
-    <input type="text" id="searchInput" placeholder="Enter player name">
-    <button onclick="search()">Search</button>
-    <div id="result"></div>
+    <header>
+        <h1>Player Data</h1>
+    </header>
+    <div class="container">
+        <div style="display: flex; align-items: center;"> <!-- Added flexbox container -->
+            <input type="text" id="search" placeholder="Search by Player Name or Coordinates">
+            <button onclick="filterData()">Search</button>
+        </div>
+        <div class="data-list" id="data-list"></div>
+    </div>
 
-    <script>
-        function search() {
-            var playerName = document.getElementById("searchInput").value;
+    <script src="script.js"></script>
 
-            // Send AJAX request to backend
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "/search?name=" + playerName, true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        document.getElementById("result").innerHTML = xhr.responseText;
-                    } else {
-                        document.getElementById("result").innerHTML = "Player not found";
-                    }
-                }
-            };
-            xhr.send();
-        }
-    </script>
+<br>
+<br>
+ <center> Mike sucks, Sandi rocks! <center> 
+ <center>In the rhythm of life, F4A kicks! <center>
+<br>
+<br>
 </body>
 </html>

@@ -1,9 +1,0 @@
-{
-  "name": "player-search-app",
-  "version": "1.0.0",
-  "description": "A simple web application for players to search their names and find their related numbers.",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.17.2"
-  }
-}
