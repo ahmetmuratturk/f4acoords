@@ -11,14 +11,18 @@ app.use(express.static("public"));
 // Search route
 app.get("/search", (req, res) => {
     const playerName = req.query.name.trim().toLowerCase(); // Convert to lowercase and remove whitespaces
+    console.log("Received player name:", playerName);
 
     // Check if player name exists in data
     if (playerName in playerData) {
+        console.log("Player found:", playerData[playerName]);
         res.send(playerData[playerName]);
     } else {
+        console.log("Player not found");
         res.status(404).send("Player not found");
     }
 });
+
 
 
 // Start server
